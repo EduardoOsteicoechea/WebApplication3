@@ -2,7 +2,7 @@
 FROM mcr.microsoft.com/dotnet/sdk:8.0 AS build
 WORKDIR /app
 
-# Copy the csproj and restore dependencie
+# Copy the csproj and restore dependencies
 COPY *.csproj ./
 RUN dotnet restore
 
@@ -10,7 +10,7 @@ RUN dotnet restore
 COPY . .
 
 # Build the application
-RUN dotnet publish -c Release -o /out
+RUN dotnet publish -c Release -o out
 
 # Use a minimal .NET 8 runtime image as the base
 FROM mcr.microsoft.com/dotnet/aspnet:8.0 AS runtime
